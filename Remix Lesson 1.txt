@@ -1,0 +1,41 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+contract SimpleStorage {
+    // This declaration without a value automatically assigns
+    // "null" value (which is equal to 'zero) to favoriteNumber
+    uint256 favoriteNumber;
+
+    // putting "public" before the favoriteNumber above will place a Blue button in
+    // the deploys contract section
+
+    struct People {
+        uint256 favoriteNumber;
+        string name;
+    }   
+
+    People[] public people;
+
+    People public person = People({favoriteNumber: 2, name: "Patrick"});
+
+    function addPerson(string memory _name, uint256 _favoriteNumber) public {
+        people.push(People( _favoriteNumber, _name));
+        // The more exact way of writing this is  people.push(People({favoriteNumber: _favoriteNumber, name: _name}));
+
+        // "memory" only store data during the execution of the function
+        // "storage" will store the value
+    }
+   
+    function store(uint256 _favoriteNumber) public {
+        favoriteNumber = _favoriteNumber;
+
+    }
+
+    // 'view and 'pure are 'Non-State changing functions that do not make transactons when used
+    // the use of 'view just reads off the blockchain and doesnt require a transaction
+    // So when you see a blue button to the left of the code, it doesnt require a transaction
+    // However, the Orange button is a function that requires a transaction and cost a little gas fee
+    // the 'pure function is used to perfrom some type of math
+    function retrieve() public view returns(uint256) {
+        return favoriteNumber;
+    }
+}
