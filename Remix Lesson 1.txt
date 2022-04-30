@@ -47,7 +47,8 @@ contract SimpleStorage {
         // "string"s are objects (an array of bytes). Because of this, you have to determine how it is to be stored (e.g. memoru or storage)
     }
        
-
+    // ****** You must enter a value of 0 (zero) in the "people" entry space. 
+    // ****** Then enter "string","number" and click addPerson before clicking people button
     
     
 }
