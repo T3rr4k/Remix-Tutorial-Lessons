@@ -48,6 +48,25 @@ contract SimpleStorage {
        
     // ****** You must enter a value of 0 (zero) in the "people" entry space. 
     // ****** Then enter "string","number" and click addPerson before clicking people button
+    // ****** Since this is dynamic, you can store each person and number by changing the "people" number and
+    // ****** "assigning that numbered person a "name" and a "favorite number" in the "addPerson" section
+    
+    
+} 
+
+    function addPerson(string memory _name, uint256 _favoriteNumber) public{
+
+        people.push(People(_favoriteNumber, _name));
+
+        // The more exact way of writing this is  people.push(People({favoriteNumber: _favoriteNumber, name: _name}));
+
+        // "memory" only store data during the execution of the function
+        // "storage" will store the value even after the funtion has executed
+        // "string"s are objects (an array of bytes). Because of this, you have to determine how it is to be stored (e.g. memoru or storage)
+    }
+       
+    // ****** You must enter a value of 0 (zero) in the "people" entry space. 
+    // ****** Then enter "string","number" and click addPerson before clicking people button
     
     
 }
