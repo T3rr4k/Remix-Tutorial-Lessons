@@ -16,12 +16,15 @@ contract SimpleStorage {
         uint256 favoriteNumber;
         string name;
     }   
+    
+    /// This following line (not used) is NOT dynamic and just inputs a set value --->  People public person = People({favoriteNumber: 2, name: "Patrick"});
 
     People[] public people;
     mapping(string => uint256) public nameToFavoriteNumber;
+    // Mappingfunction allows you to enter a "string" name in the nameToFavoriteNumber space to return the associated favoriteNumber value
+    // It is used in conjunction with the "nameToFavoriteNumber[_name] = _favoriteNumber;" added below
 
-    /// People public person = People({favoriteNumber: 2, name: "Patrick"});
-
+   
     function store(uint256 _favoriteNumber) public {
         favoriteNumber = _favoriteNumber;
     }
